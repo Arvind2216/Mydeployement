@@ -1,0 +1,57 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>IRIS Data Set Analysis </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+<style>
+    .submitbtn {
+        background: linear-gradient(#141e30, #243b55);
+        border: 2px solid #03e9f4;
+        height: 35px;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 10px;
+        margin: 0;
+    }
+    .inputfield{
+        width: 70%;
+        padding: 10px 0px 10px 5px; 
+        margin: 10px 0;
+        border-radius: 10px;
+        border: 1px solid #d1d1d1;
+        background: transparent;
+        box-shadow: 0px 1px 4px 0px #d1d1d1;
+        color: #fff;
+    }
+</style>
+<body>
+    <div class="login-box">
+        <h2>Guess Your IRIS Flower</h2>
+        <form action="/home/calculate" style="text-align: center;">
+            <div class="Sepal Length">
+                <input type="text" name="SLength" required="" class="inputfield" placeholder="Enter Sepel Length">
+            </div>
+            <div class="Sepal Width">
+                <input type="text" name="SWidth" required="" class="inputfield" placeholder="Enter Sepel width">
+            
+            </div>
+            <div class="Petal Length">
+                <input type="text" name="PLength" required="" class="inputfield" placeholder="Enter Petel Length">
+            </div>
+            <div class="Petal Width">
+                <input type="text" name="PWidth" required="" class="inputfield" placeholder="Enter Petel Width">
+            </div>
+            <div style=" text-align: center;padding: 10px;">
+                <input type="submit" name="submit" value="Guess the flower" class="submitbtn" />
+            </div>
+        </form><br>
+        {% if predicted != "" %}
+        <h2>Type of the Flower is: {{predicted}}</h2>
+        {% endif %}
+        
+    </div>
+</body>
+
+</html>
